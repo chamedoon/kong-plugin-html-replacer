@@ -2,7 +2,7 @@ package = "kong-plugin-html-replacer"
 version = "0.1-0"
 supported_platforms = {"linux", "macosx"}
 source = {
-  url = "git://github.com/chamedoon/kong-plugin-html-replacer",
+  url = "https://github.com/chamedoon/kong-plugin-html-replacer.git",
   tag = "v0.1-0"
 }
 description = {
