@@ -6,7 +6,7 @@ A simple plugin to replace text in html responses
 This plugin replaces text in html responses based on the configuration. It needs the upstream server to set "Content-Type" to "text/html". obviousley other types of responses such as "application/json" or etc would not be modified.
 
 ## Installation  
-### prequisities
+### Prerequisite
 - Kong (obviously)
 
 ### Development
