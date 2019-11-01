@@ -2,7 +2,6 @@ set -e
 
 export OPENRESTY_INSTALL=$CACHE_DIR/openresty
 export LUAROCKS_INSTALL=$CACHE_DIR/luarocks
-# export SERF_INSTALL=$CACHE_DIR/serf
 export KONG_INSTALL=$CACHE_DIR/kong
 
 mkdir -p $CACHE_DIR
@@ -71,25 +70,25 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
 
 fi
 
-export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin:$SERF_INSTALL
+export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin
 
 eval `luarocks path`
 
-luarocks install kong 0.9.0-0 --local
+luarocks install kong 1.0.1-0 --local
 
 # # -------------------------------------
 # # Install ccm & setup Cassandra cluster
 # # -------------------------------------
-# if [[ "$TEST_SUITE" != "unit" ]] && [[ "$TEST_SUITE" != "lint" ]]; then
-#   pip install --user PyYAML six
-#   git clone https://github.com/pcmanus/ccm.git
-#   pushd ccm
-#     ./setup.py install --user
-#   popd
-#   ccm create test -v binary:$CASSANDRA -n 1 -d
-#   ccm start -v
-#   ccm status
-# fi
+ if [[ "$TEST_SUITE" != "unit" ]] && [[ "$TEST_SUITE" != "lint" ]]; then
+   pip install --user PyYAML six
+   git clone https://github.com/pcmanus/ccm.git
+   pushd ccm
+     ./setup.py install --user
+   popd
+   ccm create test -v binary:$CASSANDRA -n 1 -d
+   ccm start -v
+   ccm status
+ fi
 
 # nginx -V
 # resty -V

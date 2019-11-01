@@ -257,7 +257,7 @@ end
 function DataDumper.var_dump(...)
     local args = {...}
     if #args > 1 then
-        var_dump(args)
+        DataDumper.var_dump(args)
     else
         print(recurse(args[1]))
     end

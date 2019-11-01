@@ -6,9 +6,10 @@ for _, strategy in helpers.each_strategy() do
   describe("html replacer", function()
 
     local bp = helpers.get_db_utils()
+    local service, route1, route2, route3, route4, admin_client, proxy_client
 
     setup(function()
-      local service = bp.services:insert {
+      service = bp.services:insert {
         name = "test-service",
         host = "httpbin.org",
         port = 80,

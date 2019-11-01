@@ -19,10 +19,12 @@ endef
 lint:
 	@luacheck -q . \
 						--exclude-files 'kong/vendor/**/*.lua' \
-						--exclude-files 'spec/fixtures/invalid-module.lua' \
+						--exclude-files 'spec/fixtures/**' \
+						--exclude-files 'spec/helpers.lua' \
 						--std 'ngx_lua+busted' \
 						--globals '_KONG' \
 						--globals 'ngx' \
+						--globals 'kong' \
 						--globals 'assert' \
 						--no-redefined \
 						--no-unused-args

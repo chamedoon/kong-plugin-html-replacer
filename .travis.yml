@@ -16,9 +16,9 @@ env:
   global:
     # - SERF=0.7.0
     - LUAROCKS=2.3.0
-    - KONG_VERSION=0.9.0
+    - KONG_VERSION=1.0.1
     - OPENSSL=1.0.2h
-    # - CASSANDRA=2.2.7
+    - CASSANDRA=2.2.7
     - OPENRESTY=1.9.15.1
     - $CACHE_DIR=$HOME/cache
   matrix:
