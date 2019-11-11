@@ -93,5 +93,5 @@ luarocks install kong "$KONG_VERSION"-0 --local
 # nginx -V
 # resty -V
 luarocks --version
-kong version
+# kong version
 # serf version
