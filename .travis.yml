@@ -27,6 +27,7 @@ env:
     - CASSANDRA=2.2.7
     - OPENRESTY=1.9.15.1
     - $CACHE_DIR=$HOME/cache
+    - PGPORT=5433
   jobs:
     - TEST_SUITE=lint
     - TEST_SUITE=unit
@@ -41,7 +42,7 @@ install:
   
 before_script:
   - printenv
-  - psql -U postgres -c "create extension postgis"
+  - psql -p $PGPORT -U postgres -c "create extension postgis"
 
 script:
   - .ci/run_tests.sh
