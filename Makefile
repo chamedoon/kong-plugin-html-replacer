@@ -1,7 +1,7 @@
 DEV_ROCKS = busted luacheck lua-llthreads2
 BUSTED_ARGS ?= -o gtest -v --exclude-tags=ci
 TEST_CMD ?= bin/busted $(BUSTED_ARGS)
-KONG_PATH ?=/kong
+KONG_PATH ?= bin/kong
 PLUGIN_NAME := kong-plugin-html-replacer
 
 .PHONY: install uninstall dev lint test test-integration test-plugins test-all clean
