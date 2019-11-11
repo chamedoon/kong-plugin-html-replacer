@@ -36,8 +36,8 @@ env:
 
 before_install:
   - wget https://archive.apache.org/dist/cassandra/2.2.7/apache-cassandra-2.2.7-bin.tar.gz && tar -xvzf apache-cassandra-2.2.7-bin.tar.gz
-  - cd apache-cassandra-2.2.7 && sh ./bin/cassandra
-  - export PATH="$PATH:apache-cassandra-2.2.7/bin"
+  - cd apache-cassandra-2.2.7 && sh ./bin/cassandra && cd ..
+  - export PATH="${PATH}:${PWD}/apache-cassandra-2.2.7/bin"
   - sudo service postgresql start
   - while ! cqlsh -e 'describe cluster' ; do sleep 1; done
   - source .ci/setup_env.sh
