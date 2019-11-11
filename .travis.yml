@@ -28,7 +28,6 @@ env:
     - CASSANDRA=2.2.7
     - OPENRESTY=1.9.15.1
     - $CACHE_DIR=$HOME/cache
-    - PGPORT=5433
   jobs:
     - TEST_SUITE=lint
     - TEST_SUITE=unit
@@ -37,7 +36,7 @@ env:
 
 before_install:
   - wget https://archive.apache.org/dist/cassandra/2.2.7/apache-cassandra-2.2.7-bin.tar.gz && tar -xvzf apache-cassandra-2.2.7-bin.tar.gz && sudo sh apache-cassandra-2.2.7/bin/cassandra
-  - systemctl status postgresql
+  - sudo sh systemctl start postgresql
   - cqlsh -u cassandra -p cassandra --execute "SELECT * FROM system_schema.keyspaces;"
   - source .ci/setup_env.sh
 
