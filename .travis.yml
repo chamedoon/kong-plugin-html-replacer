@@ -1,55 +1,46 @@
-DEV_ROCKS = busted luacheck lua-llthreads2
-BUSTED_ARGS ?= -o gtest -v --exclude-tags=ci
-TEST_CMD ?= bin/busted $(BUSTED_ARGS)
-KONG_PATH ?= bin/kong
-PLUGIN_NAME := kong-plugin-error-replacer
+dist: xenial
+sudo: false
 
-.PHONY: install uninstall dev lint test test-integration test-plugins test-all clean
+language: generic
 
-mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
-current_dir := $(dir $(mkfile_path))
-DEV_PACKAGE_PATH := $(current_dir)lua_modules/share/lua/5.1/?
+notifications:
+  email: false
 
-define set_env
-	@eval $$(luarocks path); \
-	LUA_PATH="$(DEV_PACKAGE_PATH).lua;$$LUA_PATH" LUA_CPATH="$(DEV_PACKAGE_PATH).so;$$LUA_CPATH"; \
-	cd $(KONG_PATH);
-endef
+addons:
+  postgresql: "9.5"
+   apt:
+     packages:
+       - net-tools
+       - libpcre3-dev
+       - build-essential
 
-lint:
-	@luacheck -q . \
-						--exclude-files 'kong/vendor/**/*.lua' \
-						--exclude-files 'spec/fixtures/**' \
-						--exclude-files 'spec/helpers.lua' \
-						--std 'ngx_lua+busted' \
-						--globals '_KONG' \
-						--globals 'ngx' \
-						--globals 'kong' \
-						--globals 'assert' \
-						--no-redefined \
-						--no-unused-args
+env:
+  global:
+    # - SERF=0.7.0
+    - LUAROCKS=2.3.0
+    - KONG_VERSION=1.0.1
+    - OPENSSL=1.0.2h
+    - CASSANDRA=2.2.7
+    - OPENRESTY=1.9.15.1
+    - $CACHE_DIR=$HOME/cache
+  matrix:
+    - TEST_SUITE=lint
+    - TEST_SUITE=unit
+    - TEST_SUITE=integration
+    # - TEST_SUITE=plugins
+
+before_install:
+  - source .ci/setup_env.sh
 
 install:
-	sudo luarocks make $(PLUGIN_NAME)-*.rockspec
+  - make install
 
-uninstall:
-	sudo luarocks remove $(PLUGIN_NAME)-*.rockspec
+script:
+  - .ci/run_tests.sh
 
-install-dev:
-	luarocks make --tree lua_modules $(PLUGIN_NAME)-*.rockspec
-
-test: install-dev
-	$(call set_env) \
-	$(TEST_CMD) $(current_dir)spec/01-unit
-
-test-integration: install-dev
-	$(call set_env) \
-	$(TEST_CMD) $(current_dir)spec/02-integration
-
-test-all: install-dev
-	$(call set_env) \
-	$(TEST_CMD) $(current_dir)spec/
-
-clean:
-	@echo "removing $(PLUGIN_NAME)"
-	-@luarocks remove --tree lua_modules $(PLUGIN_NAME)-*.rockspec >/dev/null 2>&1 ||:
+cache:
+  apt: true
+  pip: true
+  directories:
+    - $CACHE_DIR
+    - $HOME/.ccm/repository
