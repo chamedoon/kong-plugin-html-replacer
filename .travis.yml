@@ -11,7 +11,7 @@ services:
   - cassandra
 
 addons:
-#  postgresql: "9.5"
+  postgresql: "9.5"
   apt:
    packages:
      - net-tools
