@@ -40,6 +40,7 @@ install:
   - make install
   
 before_script:
+  - printenv
   - psql -U postgres -c "create extension postgis"
 
 script:
