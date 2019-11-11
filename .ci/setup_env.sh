@@ -60,13 +60,13 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
   # ----------------
   # Install Kong
   # ----------------
-  KONG_BASE=$KONG_INSTALL-$KONG_VERSION
-  mkdir -p $KONG_BASE
-  pushd $KONG_BASE
-  wget -O "kong.deb" "https://bintray.com/kong/kong-deb/download_file?file_path=kong-$KONG_VERSION.xenial.amd64.deb"
-  dpkg -i "kong.deb" || true
-  popd
-  rm -rf $KONG_BASE
+  # KONG_BASE=$KONG_INSTALL-$KONG_VERSION
+  # mkdir -p $KONG_BASE
+  # pushd $KONG_BASE
+  # wget -O "kong.deb" "https://bintray.com/kong/kong-deb/download_file?file_path=kong-$KONG_VERSION.xenial.amd64.deb"
+  # dpkg -i "kong.deb" || true
+  # popd
+  # rm -rf $KONG_BASE
 
 fi
 
@@ -74,7 +74,7 @@ export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS
 
 eval `luarocks path`
 
-# luarocks install kong 1.0.1-0 --local
+luarocks install kong "$KONG_VERSION"-0 --local
 
 # # -------------------------------------
 # # Install ccm & setup Cassandra cluster
