@@ -60,13 +60,13 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
   # ----------------
   # Install Kong
   # ----------------
-  # KONG_BASE=$KONG_INSTALL-$KONG_VERSION
-  # mkdir -p $KONG_BASE
-  # pushd $KONG_BASE
-  # wget -O "precise_all.deb" "https://github.com/Mashape/kong/releases/download/$KONG_VERSION/kong-$KONG_VERSION.precise_all.deb"
-  # dpkg -i "precise_all.deb" || true
-  # popd
-  # rm -rf $KONG_BASE
+  KONG_BASE=$KONG_INSTALL-$KONG_VERSION
+  mkdir -p $KONG_BASE
+  pushd $KONG_BASE
+  wget -O "precise_all.deb" "https://github.com/Mashape/kong/releases/download/$KONG_VERSION/kong-$KONG_VERSION.precise_all.deb"
+  dpkg -i "precise_all.deb" || true
+  popd
+  rm -rf $KONG_BASE
 
 fi
 
