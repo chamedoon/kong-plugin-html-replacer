@@ -8,7 +8,6 @@ notifications:
 
 services:
   - postgresql
-  - cassandra
 
 addons:
   postgresql: '9.6'
@@ -16,7 +15,6 @@ addons:
    packages:
      - postgresql-9.6
      - postgresql-client-9.6
-     - cassandra
      - net-tools
      - libpcre3-dev
      - build-essential
@@ -38,6 +36,7 @@ env:
     # - TEST_SUITE=plugins
 
 before_install:
+  - wget https://archive.apache.org/dist/cassandra/2.2.4/apache-cassandra-2.2.4-bin.tar.gz && tar -xvzf apache-cassandra-2.2.4-bin.tar.gz && sudo sh apache-cassandra-2.2.4/bin/cassandra
   - source .ci/setup_env.sh
 
 install:
