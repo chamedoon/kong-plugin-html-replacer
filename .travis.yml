@@ -1,18 +1,18 @@
 dist: xenial
-sudo: false
+os: linux
 
-language: generic
+language: shell
 
 notifications:
   email: false
 
 addons:
   postgresql: "9.5"
-   apt:
-     packages:
-       - net-tools
-       - libpcre3-dev
-       - build-essential
+  apt:
+   packages:
+     - net-tools
+     - libpcre3-dev
+     - build-essential
 
 env:
   global:
@@ -23,7 +23,7 @@ env:
     - CASSANDRA=2.2.7
     - OPENRESTY=1.9.15.1
     - $CACHE_DIR=$HOME/cache
-  matrix:
+  jobs:
     - TEST_SUITE=lint
     - TEST_SUITE=unit
     - TEST_SUITE=integration
