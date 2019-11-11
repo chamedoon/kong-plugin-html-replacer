@@ -11,7 +11,7 @@ services:
   - cassandra
 
 addons:
-  postgresql: "9.5"
+  postgresql: 9.5
   apt:
    packages:
      - net-tools
@@ -38,6 +38,9 @@ before_install:
 
 install:
   - make install
+  
+before_script:
+  - psql -U postgres -c "create extension postgis"
 
 script:
   - .ci/run_tests.sh
