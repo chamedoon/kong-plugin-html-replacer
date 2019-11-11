@@ -74,7 +74,7 @@ export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS
 
 eval `luarocks path`
 
-luarocks install kong 1.0.1-0 --local
+# luarocks install kong 1.0.1-0 --local
 
 # # -------------------------------------
 # # Install ccm & setup Cassandra cluster
