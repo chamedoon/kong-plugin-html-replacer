@@ -74,7 +74,7 @@ export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS
 
 eval `luarocks path`
 
-luarocks install kong "$KONG_VERSION"-0 --local
+luarocks install kong "$KONG_VERSION"-0
 luarocks install luacheck 0.23.0-1
 
 # # -------------------------------------
