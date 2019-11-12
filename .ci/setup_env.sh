@@ -80,16 +80,16 @@ luarocks install luacheck 0.23.0-1
 # # -------------------------------------
 # # Install ccm & setup Cassandra cluster
 # # -------------------------------------
- if [[ "$TEST_SUITE" != "unit" ]] && [[ "$TEST_SUITE" != "lint" ]]; then
-   pip install --user PyYAML six
-   git clone https://github.com/pcmanus/ccm.git
-   pushd ccm
-     ./setup.py install --user
-   popd
-   ccm create test -v binary:$CASSANDRA -n 1 -d
-   ccm start -v
-   ccm status
- fi
+# if [[ "$TEST_SUITE" != "unit" ]] && [[ "$TEST_SUITE" != "lint" ]]; then
+#   pip install --user PyYAML six
+#   git clone https://github.com/pcmanus/ccm.git
+#   pushd ccm
+#     ./setup.py install --user
+#   popd
+#   ccm create test -v binary:$CASSANDRA -n 1 -d
+#   ccm start -v
+#   ccm status
+# fi
 
 # nginx -V
 # resty -V
