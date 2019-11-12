@@ -42,7 +42,6 @@ install:
   - make install
 
 script:
-  - ./bin/kong -v
   - .ci/run_tests.sh
 
 cache:
