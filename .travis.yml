@@ -19,7 +19,6 @@ addons:
      - libpcre3-dev
      - build-essential
      - lua5.1
-     - kong1.3
 
 env:
   global:
