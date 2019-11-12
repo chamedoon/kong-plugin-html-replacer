@@ -18,6 +18,7 @@ addons:
      - net-tools
      - libpcre3-dev
      - build-essential
+     - lua5.1
 
 env:
   global:
@@ -29,6 +30,7 @@ env:
     - OPENRESTY=1.9.15.1
     - $CACHE_DIR=$HOME/cache
     - CQLSH_NO_BUNDLED=TRUE
+    - LUA=5.1
   jobs:
     - TEST_SUITE=lint
     - TEST_SUITE=unit
