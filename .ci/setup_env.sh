@@ -94,7 +94,6 @@ luarocks install luacheck 0.23.0-1
 luarocks --version
 # kong version
 # serf version
-
 pip install cassandra-driver --user
 wget https://archive.apache.org/dist/cassandra/2.2.7/apache-cassandra-2.2.7-bin.tar.gz && tar -xvzf apache-cassandra-2.2.7-bin.tar.gz
 sed -i 's/^\(authenticator: \)\(AllowAllAuthenticator\)$/\1PasswordAuthenticator/i' apache-cassandra-2.2.7/conf/cassandra.yaml
@@ -102,3 +101,5 @@ cd apache-cassandra-2.2.7 && sh ./bin/cassandra && cd ..
 export PATH="${PATH}:${PWD}/apache-cassandra-2.2.7/bin"
 sudo service postgresql start
 while ! cqlsh -u cassandra -p cassandra -e 'describe cluster' ; do sleep 1; done
+echo "lua version:"
+lua -v
