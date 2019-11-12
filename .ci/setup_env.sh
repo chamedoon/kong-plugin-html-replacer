@@ -60,10 +60,11 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
   # ----------------
   # Install Kong
   # ----------------
-  KONG_BASE=$KONG_INSTALL-$KONG_VERSION
+  export KONG_BASE=$KONG_INSTALL-$KONG_VERSION
   mkdir -p $KONG_BASE
   pushd $KONG_BASE
-  wget -O "kong.deb" "https://bintray.com/kong/kong-deb/download_file?file_path=kong-$KONG_VERSION.xenial.amd64.deb"
+  export KONG_VERSION="1.3"
+  wget -O "kong.deb" "https://bintray.com/kong/kong-deb/download_file?file_path=kong-${KONG_VERSION}.xenial.amd64.deb"
   sudo dpkg -i "kong.deb" || true
   popd
   rm -rf $KONG_BASE
@@ -92,6 +93,7 @@ luarocks install luacheck 0.23.0-1
 # resty -V
 luarocks --version
 kong version
+echo "^^^ kong version ^^^"
 # serf version
 pip install cassandra-driver --user
 wget https://archive.apache.org/dist/cassandra/2.2.7/apache-cassandra-2.2.7-bin.tar.gz && tar -xvzf apache-cassandra-2.2.7-bin.tar.gz
