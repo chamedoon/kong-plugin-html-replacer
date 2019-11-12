@@ -62,12 +62,15 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
   # ----------------
   export KONG_VERSION="1.3"
   export KONG_BASE=$KONG_INSTALL-$KONG_VERSION
+  echo '========= KONG START ==========='
+  echo $KONG_BASE
   mkdir -p $KONG_BASE
   pushd $KONG_BASE
   wget -O "kong.deb" "https://bintray.com/kong/kong-deb/download_file?file_path=kong-${KONG_VERSION}.xenial.amd64.deb"
   sudo dpkg -i "kong.deb" || true
   popd
   rm -rf $KONG_BASE
+  echo '========= KONG DONE ==========='
 fi
 
 export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin
