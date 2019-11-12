@@ -79,6 +79,7 @@ ls $LUAROCKS_INSTALL/bin
 
 luarocks install kong "$KONG_VERSION"-0
 luarocks install luacheck 0.23.0-1
+printenv
 
 exit 444
 
