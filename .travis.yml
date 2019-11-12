@@ -36,7 +36,7 @@ env:
     # - TEST_SUITE=plugins
 
 before_install:
-  - pip install cassandra-driver
+  - pip install cassandra-driver --user
   - wget https://archive.apache.org/dist/cassandra/2.2.7/apache-cassandra-2.2.7-bin.tar.gz && tar -xvzf apache-cassandra-2.2.7-bin.tar.gz
   - cd apache-cassandra-2.2.7 && sh ./bin/cassandra && cd ..
   - export PATH="${PATH}:${PWD}/apache-cassandra-2.2.7/bin"
