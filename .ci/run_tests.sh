@@ -21,7 +21,7 @@ else
 EOQ
 
   # CASSANDRA
-  cqlsh -u cassandra -p cassandra --execute "CREATE ROLE kong with LOGIN = true and PASSWORD = '123';"
+  cqlsh -u cassandra -p cassandra --execute "CREATE ROLE kong with SUPERUSER = true AND LOGIN = true and PASSWORD = '123';"
   cqlsh -u kong -p 123 --execute "DROP KEYSPACE IF EXISTS kong_tests;"
   cqlsh -u kong -p 123 --execute "CREATE KEYSPACE IF NOT EXISTS kong_tests  WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };"
 
