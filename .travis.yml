@@ -28,6 +28,7 @@ env:
     - CASSANDRA=2.2.7
     - OPENRESTY=1.9.15.1
     - $CACHE_DIR=$HOME/cache
+    - CQLSH_NO_BUNDLED=TRUE
   jobs:
     - TEST_SUITE=lint
     - TEST_SUITE=unit
