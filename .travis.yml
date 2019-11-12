@@ -46,10 +46,6 @@ before_install:
 
 install:
   - make install
-  
-before_script:
-  - printenv
-  - psql -c "create extension postgis" -U travis
 
 script:
   - .ci/run_tests.sh
