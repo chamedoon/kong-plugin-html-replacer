@@ -49,7 +49,7 @@ install:
   
 before_script:
   - printenv
-  - psql -p $PGPORT -U postgres -c "create extension postgis"
+  - psql -U postgres -c "create extension postgis"
 
 script:
   - .ci/run_tests.sh
