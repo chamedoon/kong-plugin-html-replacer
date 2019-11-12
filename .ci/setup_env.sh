@@ -61,15 +61,7 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
   # ----------------
   # Install Kong
   # ----------------
-  echo '========= KONG START ==========='
-  echo $KONG_BASE
-  mkdir -p $KONG_BASE
-  pushd $KONG_BASE
-  wget -O "kong.deb" "https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.xenial.all.deb"
-  sudo dpkg -i "kong.deb"
-  popd
-  rm -rf $KONG_BASE
-  echo '========= KONG DONE ==========='
+
 fi
 
 export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin
@@ -94,6 +86,7 @@ luarocks install luacheck 0.23.0-1
 # nginx -V
 # resty -V
 luarocks --version
+echo "kong version:"
 kong version
 echo "^^^ kong version ^^^"
 
