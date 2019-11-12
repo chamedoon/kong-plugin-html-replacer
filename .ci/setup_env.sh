@@ -60,10 +60,10 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
   # ----------------
   # Install Kong
   # ----------------
+  export KONG_VERSION="1.3"
   export KONG_BASE=$KONG_INSTALL-$KONG_VERSION
   mkdir -p $KONG_BASE
   pushd $KONG_BASE
-  export KONG_VERSION="1.3"
   wget -O "kong.deb" "https://bintray.com/kong/kong-deb/download_file?file_path=kong-${KONG_VERSION}.xenial.amd64.deb"
   sudo dpkg -i "kong.deb" || true
   popd
