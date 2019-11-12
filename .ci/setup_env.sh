@@ -70,7 +70,7 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
 
 fi
 
-export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin
+export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin:$HOME/.luarocks
 
 eval `luarocks path`
 
