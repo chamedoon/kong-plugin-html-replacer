@@ -13,7 +13,7 @@ else
 #  createdb -U kong kong_tests
 
 # POSTGRES
-  psql -U postgres <<EOQ
+  psql -U travis <<EOQ
   DROP DATABASE IF EXISTS kong_tests;
   DROP ROLE IF EXISTS kong;
   CREATE USER kong WITH createdb password '123';
