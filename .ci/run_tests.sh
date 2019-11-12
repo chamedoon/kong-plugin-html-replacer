@@ -20,13 +20,16 @@ else
   CREATE DATABASE kong_tests OWNER kong;
 EOQ
 
+  echo "done with postgres scripts. \n starting cassandra scripts..."
   # CASSANDRA
   cqlsh -u cassandra -p cassandra --execute "CREATE ROLE kong with SUPERUSER = true AND LOGIN = true and PASSWORD = '123';"
   cqlsh -u kong -p 123 --execute "DROP KEYSPACE IF EXISTS kong_tests;"
   cqlsh -u kong -p 123 --execute "CREATE KEYSPACE IF NOT EXISTS kong_tests  WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };"
 
+  echo "kong is bootstraping..."
   ./bin/kong migrations bootstrap -c ./spec/kong_tests.conf
-
+  echo "kong bootstrapped."
+  
   if [ "$TEST_SUITE" == "integration" ]; then
     make test-integration
   elif [ "$TEST_SUITE" == "plugins" ]; then
