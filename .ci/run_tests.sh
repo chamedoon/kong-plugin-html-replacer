@@ -28,6 +28,7 @@ EOQ
 
   echo "kong is bootstraping..."
   ./bin/kong migrations bootstrap -c ./spec/kong_tests.conf
+  ./bin/kong -v
   echo "kong bootstrapped."
   
   if [ "$TEST_SUITE" == "integration" ]; then
