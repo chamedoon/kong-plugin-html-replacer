@@ -3,6 +3,7 @@ set -e
 export OPENRESTY_INSTALL=$CACHE_DIR/openresty
 export LUAROCKS_INSTALL=$CACHE_DIR/luarocks
 export KONG_INSTALL=$CACHE_DIR/kong
+export KONG_BASE="${KONG_INSTALL}-${KONG_VERSION}"
 
 mkdir -p $CACHE_DIR
 
@@ -61,13 +62,11 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
   # Install Kong
   # ----------------
   echo '========= KONG START ==========='
-  export KONG_VERSION="1.3"
-  export KONG_BASE=$KONG_INSTALL-$KONG_VERSION
   echo $KONG_BASE
   mkdir -p $KONG_BASE
   pushd $KONG_BASE
-  wget -O "kong.deb" "https://bintray.com/kong/kong-deb/download_file?file_path=kong-${KONG_VERSION}.xenial.amd64.deb"
-  sudo dpkg -i "kong.deb" || true
+  wget -O "kong.deb" "https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.xenial.all.deb"
+  sudo dpkg -i "kong.deb"
   popd
   rm -rf $KONG_BASE
   echo '========= KONG DONE ==========='
