@@ -31,16 +31,19 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
       --with-pcre-jit \
       --with-http_ssl_module \
       --with-http_realip_module \
-      --with-http_stub_status_module
+      --with-http_stub_status_module \
+      --with-http_v2_module
     make
     make install
   popd
 
   rm -rf $OPENRESTY_BASE
 
+
   # ----------------
   # Install Luarocks
   # ----------------
+  
   LUAROCKS_BASE=luarocks-$LUAROCKS
   mkdir -p $LUAROCKS_INSTALL
   git clone https://github.com/keplerproject/luarocks.git $LUAROCKS_BASE
@@ -58,24 +61,25 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
 
   rm -rf $LUAROCKS_BASE
 
-  # ----------------
-  # Install Kong
-  # ----------------
-  echo '========= KONG START ==========='
-  echo $KONG_BASE
-  mkdir -p $KONG_BASE
-  pushd $KONG_BASE
-  wget -O "kong.deb" "https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.xenial.all.deb"
-  sudo dpkg -i "kong.deb"
-  popd
-  rm -rf $KONG_BASE
-  echo '========= KONG DONE ==========='
 fi
 
 export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin
 
-# luarocks install kong "$KONG_VERSION"-0
+# luarocks install kong "$KONG_VERSION"-0; #this rock does not copy bin/kong
 sudo luarocks install luacheck 0.23.0-1
+
+# ----------------
+# Install Kong
+# ----------------
+echo '========= KONG START ==========='
+mkdir -p $KONG_INSTALL
+echo $KONG_BASE
+git clone git@github.com:Kong/kong.git $KONG_BASE
+pushd $KONG_BASE
+make install
+popd
+export PATH=$PATH:$KONG_INSTALL/bin
+echo '========= KONG DONE ==========='
 
 # # -------------------------------------
 # # Install ccm & setup Cassandra cluster
