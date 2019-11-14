@@ -82,10 +82,10 @@ git checkout tags/1.4.0
 make install
 pwd
 echo '.........'
-ls
+ls bin
 echo '.........'
 popd
-export PATH=$PATH:$KONG_INSTALL/$KONG_BASE/bin
+export PATH=$PATH:$KONG_BASE/bin
 printenv
 echo '========= KONG DONE ==========='
 
