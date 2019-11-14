@@ -80,9 +80,12 @@ git clone https://github.com/Kong/kong.git $KONG_BASE
 pushd $KONG_BASE
 git checkout tags/1.4.0
 make install
-popd
 pwd
-export PATH=$PATH:$KONG_INSTALL/bin
+echo '.........'
+ls
+echo '.........'
+popd
+export PATH=$PATH:$KONG_INSTALL/$KONG_BASE/bin
 printenv
 echo '========= KONG DONE ==========='
 
