@@ -66,7 +66,7 @@ fi
 
 export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin
 
-luarocks install kong "$KONG_VERSION"-0; #this rock does not copy bin/kong
+# luarocks install kong "$KONG_VERSION"-0; #this rock does not copy bin/kong
 luarocks install luacheck 0.23.0-1
 
 # ----------------
@@ -79,11 +79,8 @@ echo $KONG_BASE
 git clone https://github.com/Kong/kong.git $KONG_BASE
 pushd $KONG_BASE
 git checkout tags/1.4.0
+luarocks make
 make install
-pwd
-echo '.........'
-ls bin
-echo '.........'
 popd
 export PATH=$PATH:$KONG_BASE/bin
 printenv
