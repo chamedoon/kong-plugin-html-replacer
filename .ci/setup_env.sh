@@ -14,8 +14,9 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
   # Install OpenSSL
   # ---------------
   OPENSSL_BASE=openssl-$OPENSSL
-  curl -L http://www.openssl.org/source/$OPENSSL_BASE.tar.gz | tar xz
-
+  #curl -L http://www.openssl.org/source/$OPENSSL_BASE.tar.gz | tar xz
+  curl -L https://www.openssl.org/source/old/1.0.2/openssl-1.0.2h.tar.gz | tar xz
+  
   # -----------------
   # Install OpenResty
   # -----------------
