@@ -18,7 +18,7 @@ addons:
      - net-tools
      - libpcre3-dev
      - build-essential
-#     - lua5.1
+     - lua5.1
 
 env:
   global:
