@@ -106,6 +106,7 @@ echo '========= KONG DONE ==========='
 luarocks --version
 echo "kong version:"
 kong version
+which kong
 echo "^^^ kong version ^^^"
 
 # serf version
