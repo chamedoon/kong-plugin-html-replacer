@@ -104,9 +104,10 @@ echo '========= KONG DONE ==========='
 # nginx -V
 # resty -V
 luarocks --version
+echo "kong path:"
+which kong
 echo "kong version:"
 kong version
-which kong
 echo "^^^ kong version ^^^"
 
 # serf version
