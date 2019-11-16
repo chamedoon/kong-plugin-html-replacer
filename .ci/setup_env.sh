@@ -69,7 +69,7 @@ export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS
 eval `luarocks path`
 
 # luarocks install kong "$KONG_VERSION"-0; #this rock does not copy bin/kong
-luarocks install luacheck 0.23.0-1
+luarocks install luacheck 0.20.0-1
 
 # ----------------
 # Install Kong
@@ -89,9 +89,6 @@ export PATH=$PATH:$KONG_BASE/bin
 printenv
 echo '========= KONG DONE ==========='
 popd
-pwd
-echo 'has:'
-ls
 # # -------------------------------------
 # # Install ccm & setup Cassandra cluster
 # # -------------------------------------
@@ -109,9 +106,7 @@ ls
 # nginx -V
 # resty -V
 luarocks --version
-echo "kong path:"
-which kong
-echo "kong version:"
+luacheck -v
 kong version
 echo "^^^ kong version ^^^"
 
