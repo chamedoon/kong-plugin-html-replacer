@@ -30,13 +30,13 @@ lint:
 						--no-unused-args
 
 install:
-	sudo luarocks make $(PLUGIN_NAME)-*.rockspec
+	luarocks make $(PLUGIN_NAME)-*.rockspec
 
 uninstall:
-	sudo luarocks remove $(PLUGIN_NAME)-*.rockspec
+	luarocks remove $(PLUGIN_NAME)-*.rockspec
 
 install-dev:
-	sudo luarocks make --tree lua_modules $(PLUGIN_NAME)-*.rockspec
+	luarocks make --tree lua_modules $(PLUGIN_NAME)-*.rockspec
 
 test: install-dev
 	$(call set_env) \
