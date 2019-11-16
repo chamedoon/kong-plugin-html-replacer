@@ -76,7 +76,7 @@ luarocks install luacheck 0.23.0-1
 # ----------------
 echo '========= KONG START ==========='
 mkdir -p $KONG_INSTALL
-cd $KONG_INSTALL
+pushd $KONG_INSTALL
 echo $KONG_BASE
 git clone https://github.com/Kong/kong.git $KONG_BASE
 pushd $KONG_BASE
@@ -88,6 +88,7 @@ popd
 export PATH=$PATH:$KONG_BASE/bin
 printenv
 echo '========= KONG DONE ==========='
+popd
 pwd
 echo 'has:'
 ls
