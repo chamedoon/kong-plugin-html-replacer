@@ -30,7 +30,7 @@ EOQ
   pwd
   echo "^^ pwd, ls:"
   ls -la
-  /bin/kong migrations bootstrap -c ./spec/kong_tests.conf
+  kong migrations bootstrap -c ./spec/kong_tests.conf
   echo "kong bootstrapped."
   
   if [ "$TEST_SUITE" == "integration" ]; then
