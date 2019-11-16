@@ -88,7 +88,9 @@ popd
 export PATH=$PATH:$KONG_BASE/bin
 printenv
 echo '========= KONG DONE ==========='
-
+pwd
+echo 'has:'
+ls
 # # -------------------------------------
 # # Install ccm & setup Cassandra cluster
 # # -------------------------------------
