@@ -27,7 +27,7 @@ EOQ
   cqlsh -u kong -p 123 --execute "CREATE KEYSPACE IF NOT EXISTS kong_tests  WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };"
 
   echo "kong is bootstraping..."
-  kong migrations bootstrap -c ./spec/kong_tests.conf
+  /bin/kong migrations bootstrap -c ./spec/kong_tests.conf
   echo "kong bootstrapped."
   
   if [ "$TEST_SUITE" == "integration" ]; then
