@@ -3,7 +3,7 @@ set -e
 export OPENRESTY_INSTALL=$CACHE_DIR/openresty
 export LUAROCKS_INSTALL=$CACHE_DIR/luarocks
 export KONG_INSTALL=$CACHE_DIR/kong
-export KONG_BASE="${KONG_INSTALL}-${KONG_VERSION}"
+export KONG_BASE="kong-${KONG_VERSION}"
 
 mkdir -p $CACHE_DIR
 
@@ -71,24 +71,29 @@ eval `luarocks path`
 # luarocks install kong "$KONG_VERSION"-0; #this rock does not copy bin/kong
 luarocks install luacheck 0.20.0-1
 
-# ----------------
-# Install Kong
-# ----------------
 echo '========= KONG START ==========='
 mkdir -p $KONG_INSTALL
-pushd $KONG_INSTALL
-echo $KONG_BASE
-git clone https://github.com/Kong/kong.git $KONG_BASE
-pushd $KONG_BASE
-git checkout tags/1.4.0
-luarocks make
-make install
-make dev
-popd
-export PATH=$PATH:$KONG_BASE/bin
+if [ ! "$(ls -A $KONG_INSTALL)" ]; then
+  # ----------------
+  # Install Kong
+  # ----------------
+  echo 'building cache...'
+  pushd $KONG_INSTALL
+  export KONG_BASE="kong-${KONG_VERSION}"
+  echo $KONG_BASE
+  git clone https://github.com/Kong/kong.git $KONG_BASE
+  pushd $KONG_BASE
+  git checkout tags/1.4.0
+  luarocks make
+  make install
+  make dev
+  popd
+  popd
+fi
+export PATH=$PATH:$KONG_INSTALL/$KONG_BASE/bin
 printenv
 echo '========= KONG DONE ==========='
-popd
+
 # # -------------------------------------
 # # Install ccm & setup Cassandra cluster
 # # -------------------------------------
