@@ -44,7 +44,7 @@ install:
   - make install
 
 script:
-  - .ci/run_tests.sh
+  - source .ci/run_tests.sh
 
 cache:
   apt: true
