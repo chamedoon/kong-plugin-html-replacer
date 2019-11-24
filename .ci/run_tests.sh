@@ -32,7 +32,7 @@ EOQ
   ls -la
   kong version
   which kong
-  kong migrations bootstrap -c ./spec/kong_tests.conf
+  kong migrations bootstrap -c ./spec/kong_tests.conf --vv
   echo "kong bootstrapped."
   
   if [ "$TEST_SUITE" == "integration" ]; then
