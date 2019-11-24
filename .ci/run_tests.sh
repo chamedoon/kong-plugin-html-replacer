@@ -30,6 +30,7 @@ EOQ
   pwd
   echo "^^ pwd, ls:"
   ls -la
+  kong version
   which kong
   kong migrations bootstrap -c ./spec/kong_tests.conf
   echo "kong bootstrapped."
