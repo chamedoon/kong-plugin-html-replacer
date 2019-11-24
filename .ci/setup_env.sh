@@ -91,6 +91,7 @@ if [ ! "$(ls -A $KONG_INSTALL)" ]; then
   popd
 fi
 export PATH=$PATH:$KONG_INSTALL/$KONG_BASE/bin
+export KONG_PATH=$KONG_INSTALL/$KONG_BASE/bin/kong
 printenv
 echo '========= KONG DONE ==========='
 
