@@ -28,13 +28,13 @@ EOQ
 
   echo "kong is bootstraping..."
   pwd
-  echo "^^ pwd, ls:"
+  echo "PWD, ls:"
   ls -la
   kong version
   which kong
-  kong migrations
   cat ./spec/kong_tests.conf
   echo "end of cat!!!!"
+  kong migrations 
   kong migrations bootstrap -c ./spec/kong_tests.conf --vv
   echo "kong bootstrapped."
   
