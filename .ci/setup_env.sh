@@ -84,6 +84,7 @@ if [ ! "$(ls -A $KONG_INSTALL)" ]; then
   git clone https://github.com/Kong/kong.git $KONG_BASE
   pushd $KONG_BASE
   git checkout tags/1.4.0
+  make
   luarocks make
   make install
   make dev
