@@ -34,7 +34,8 @@ EOQ
   which kong
   cat ./spec/kong_tests.conf
   echo "end of cat!!!!"
-  kong migrations 
+  kong
+  kong migrations --help
   kong migrations bootstrap -c ./spec/kong_tests.conf --vv
   echo "kong bootstrapped."
   
