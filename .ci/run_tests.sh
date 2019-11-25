@@ -32,7 +32,9 @@ EOQ
   ls -la
   kong version
   which kong
-  kong migrations --vv
+  kong migrations
+  cat ./spec/kong_tests.conf
+  echo "end of cat!!!!"
   kong migrations bootstrap -c ./spec/kong_tests.conf --vv
   echo "kong bootstrapped."
   
