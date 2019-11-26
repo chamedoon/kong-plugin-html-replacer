@@ -116,6 +116,10 @@ luarocks --version
 luacheck -v
 kong version
 echo "^^^ kong version ^^^"
+kong roar
+kong check
+kong health
+echo "................................................................................"
 
 # serf version
 pip install cassandra-driver --user
