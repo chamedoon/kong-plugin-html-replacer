@@ -116,8 +116,8 @@ luarocks --version
 luacheck -v
 kong version
 echo "^^^ kong version ^^^"
-kong roar
 kong check
+kong roar
 kong health
 echo "................................................................................"
 
