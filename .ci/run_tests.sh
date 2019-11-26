@@ -35,8 +35,8 @@ EOQ
   cat ./spec/kong_tests.conf
   echo "end of cat!!!!"
   kong
-  kong migrations --help
-  kong migrations bootstrap -c ./spec/kong_tests.conf --vv
+  echo "now bootstraping..."
+  kong migrations bootstrap -c ./spec/kong_tests.conf
   echo "kong bootstrapped."
   
   if [ "$TEST_SUITE" == "integration" ]; then
