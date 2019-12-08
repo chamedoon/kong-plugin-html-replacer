@@ -11,7 +11,7 @@ sudo apt-get update
 sudo apt-get install -y kong luarocks
 
 # luarocks install kong "$KONG_VERSION"-0; # 1. this rock does not copy bin/kong. 2. causes assertion failed!
-luarocks install luacheck 0.20.0-1
+luarocks install luacheck 0.20.0-1 --local
 
 # nginx -V
 # resty -V
