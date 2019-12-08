@@ -19,6 +19,10 @@ addons:
      - libpcre3-dev
      - build-essential
      - lua5.1
+     - apt-transport-https
+     - curl
+     - lsb-core
+     
 
 env:
   global:
