@@ -8,28 +8,7 @@ echo "deb https://kong.bintray.com/kong-deb `lsb_release -sc` main" | sudo tee -
 curl -o bintray.key https://bintray.com/user/downloadSubjectPublicKey?username=bintray
 sudo apt-key add bintray.key
 sudo apt-get update
-sudo apt-get install -y kong
-
-LUAROCKS_BASE=luarocks-$LUAROCKS
-  mkdir -p $LUAROCKS_INSTALL
-  git clone https://github.com/keplerproject/luarocks.git $LUAROCKS_BASE
-
-  pushd $LUAROCKS_BASE
-    git checkout v$LUAROCKS
-    ./configure \
-      --prefix=$LUAROCKS_INSTALL \
-      --lua-suffix=jit \
-      --with-lua=$OPENRESTY_INSTALL/luajit \
-      --with-lua-include=$OPENRESTY_INSTALL/luajit/include/luajit-2.1
-    make build
-    make install
-  popd
-
-  rm -rf $LUAROCKS_BASE
-
-export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin
-
-eval `luarocks path`
+sudo apt-get install -y kong luarocks
 
 # luarocks install kong "$KONG_VERSION"-0; # 1. this rock does not copy bin/kong. 2. causes assertion failed!
 luarocks install luacheck 0.20.0-1
