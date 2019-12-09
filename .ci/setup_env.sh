@@ -1,38 +1,31 @@
 set -e
 
-export LUAROCKS_INSTALL=$CACHE_DIR/luarocks
+export LUAROCKS_INSTALL=$CACHE_DIR/setup-luarocks
+export LUAROCKS_DESTDIR=$CACHE_DIR/luarocks
 
-#  LUAROCKS_INSTALL                 Overrides the `./config --prefix` value (default is `<prefix>/luarocks`)
+export OPENRESTY_INSTALL=$CACHE_DIR/setup-openresty
+export OPENRESTY_DESTDIR=$CACHE_DIR/openresty
 
-#  LUAROCKS_DESTDIR                 Overrides the `make install DESTDIR` (default is `/`)
-
-#  OPENRESTY_INSTALL                Overrides the `./config --prefix` value (default is `--prefix/openresty)
-
-#  OPENRESTY_DESTDIR                Overrides the `make install DESTDIR` (default is `/`)
-
-#  OPENSSL_INSTALL                  Overrides the `./config --prefix` value (default is `--prefix/openssl)
-
-#  OPENRESTY_RPATH
+export OPENSSL_INSTALL=$CACHE_DIR/setup-openssl
+export OPENSSL_DESTDIR=$CACHE_DIR/openssl
 
 mkdir -p $CACHE_DIR
-
 
 cd $CACHE_DIR
 git clone https://github.com/Kong/openresty-build-tools.git
 cd openresty-build-tools
-./kong-ngx-build -p buildroot --openresty 1.13.6.2 --openssl 1.1.1b --luarocks 3.0.4 
-
-
-
-
-echo "deb https://kong.bintray.com/kong-deb `lsb_release -sc` main" | sudo tee -a /etc/apt/sources.list
-curl -o bintray.key https://bintray.com/user/downloadSubjectPublicKey?username=bintray
-sudo apt-key add bintray.key
-sudo apt-get update
-sudo apt-get install -y kong luarocks
-
+./kong-ngx-build -p buildroot --openresty $OPENRESTY --openssl $OPENSSL --luarocks  $LUAROCKS
+ls -la
 # luarocks install kong "$KONG_VERSION"-0; # 1. this rock does not copy bin/kong. 2. causes assertion failed!
 luarocks install luacheck 0.20.0-1 --local
+
+cd $CACHE_DIR
+ls -la
+git clone https://github.com/Kong/kong
+cd kong/
+git checkout v1.4
+# install the Lua sources
+luarocks make
 
 # nginx -V
 # resty -V
