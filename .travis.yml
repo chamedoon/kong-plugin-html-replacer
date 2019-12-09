@@ -16,12 +16,8 @@ addons:
      - postgresql-9.6
      - postgresql-client-9.6
      - net-tools
-     - libpcre3-dev
      - build-essential
      - lua5.1
-     - apt-transport-https
-     - curl
-     - lsb-core
      
 
 env:
@@ -32,7 +28,7 @@ env:
     - OPENSSL=1.1.1d
     - CASSANDRA=2.2.7
     - OPENRESTY=1.15.8.2
-    - $CACHE_DIR=$HOME/cache
+    - CACHE_DIR=$HOME/cache
     - CQLSH_NO_BUNDLED=TRUE
     - LUA=5.1
   jobs:
