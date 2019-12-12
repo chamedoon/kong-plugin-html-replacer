@@ -19,6 +19,7 @@ pushd $LUAROCKS_INSTALL
 wget https://luarocks.org/releases/luarocks-3.2.1.tar.gz
 tar zxpf luarocks-3.2.1.tar.gz
 pushd luarocks-3.2.1
+./configure
 make build
 sudo make install
 popd
