@@ -32,16 +32,19 @@ ls -la
 git clone https://github.com/Kong/kong
 pushd kong
 git checkout 1.4.2
+ls -la
+echo '<====>'
+ls -la bin
 # install the Lua sources
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START luarocks: make kong'
 sudo make install
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED luarocks: make kong'
 popd
-find /usr/local -name kong
-echo 'ls /usr/local/lib/luarocks/rocks-5.1/kong/1.4.2-0'
-ls /usr/local/lib/luarocks/rocks-5.1/kong/1.4.2-0 -la
-echo 'ls /usr/local/share/lua/5.1/kong'
-ls /usr/local/share/lua/5.1/kong -la
+# find /usr/local -name kong
+# echo 'ls /usr/local/lib/luarocks/rocks-5.1/kong/1.4.2-0'
+# ls /usr/local/lib/luarocks/rocks-5.1/kong/1.4.2-0 -la
+# echo 'ls /usr/local/share/lua/5.1/kong'
+# ls /usr/local/share/lua/5.1/kong -la
 echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
 # nginx -V
 # resty -V
