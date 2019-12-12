@@ -26,7 +26,7 @@ sudo make install
 popd
 popd
 
-luarocks install luacheck 0.20.0-1 --local
+luarocks install luacheck 0.20.0-1
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED  luarocks: luacheck'
 ls -la
 git clone https://github.com/Kong/kong
