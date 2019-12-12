@@ -21,7 +21,7 @@ tar -zxf lua-3.2.1.tar.gz
 ls -la
 pushd lua
 ./configure
-make build
+make
 sudo make install
 popd
 popd
