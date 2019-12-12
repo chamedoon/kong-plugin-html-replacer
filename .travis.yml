@@ -25,7 +25,6 @@ addons:
      - apt-transport-https
      - curl
      - lsb-core
-     - openresty
 
 env:
   global:
