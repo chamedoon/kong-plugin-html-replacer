@@ -12,17 +12,18 @@ export OPENSSL_DESTDIR=openssl
 mkdir -p $CACHE_DIR
 
 cd $CACHE_DIR
-git clone https://github.com/Kong/openresty-build-tools.git
-cd openresty-build-tools
 printenv
-echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START kong ngx build'
-./kong-ngx-build -p buildroot --openresty $OPENRESTY --openssl $OPENSSL --luarocks  $LUAROCKS
-echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED kong ngx build'
-ls -la
-pwd
-ls /home/travis/cache/openresty-build-tools/buildroot/luarocks -la
-# luarocks install kong "$KONG_VERSION"-0; # 1. this rock does not copy bin/kong. 2. causes assertion failed!
-echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START luarocks: luacheck'
+
+mkdir -p $LUAROCKS_INSTALL
+pushd $LUAROCKS_INSTALL
+curl -R -O http://www.lua.org/ftp/lua-3.2.1.tar.gz
+tar -zxf lua-3.2.1.tar.gz
+pushd lua-5.3.4
+make linux test
+sudo make install
+popd
+popd
+
 luarocks install luacheck 0.20.0-1 --local
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED  luarocks: luacheck'
 cd $CACHE_DIR
