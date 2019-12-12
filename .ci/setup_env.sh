@@ -38,6 +38,8 @@ sudo make install
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED luarocks: make kong'
 popd
 ls -la /usr/local
+echo '/usr/local/bin'
+ls -la /usr/local/bin
 echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
 # nginx -V
 # resty -V
