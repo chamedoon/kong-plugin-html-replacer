@@ -34,7 +34,7 @@ pushd kong
 git checkout 1.4.2
 # install the Lua sources
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START luarocks: make kong'
-luarocks make
+sudo make install
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED luarocks: make kong'
 popd
 
