@@ -31,7 +31,7 @@ echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED  luarocks: l
 ls -la
 git clone https://github.com/Kong/kong
 pushd kong
-git checkout v1.4.2
+git checkout 1.4.2
 # install the Lua sources
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START luarocks: make kong'
 luarocks make
