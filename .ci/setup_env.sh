@@ -14,20 +14,26 @@ mkdir -p $CACHE_DIR
 cd $CACHE_DIR
 git clone https://github.com/Kong/openresty-build-tools.git
 cd openresty-build-tools
+printenv
+echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START kong ngx build'
 ./kong-ngx-build -p buildroot --openresty $OPENRESTY --openssl $OPENSSL --luarocks  $LUAROCKS
+echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED kong ngx build'
 ls -la
 pwd
 ls /home/travis/cache/openresty-build-tools/buildroot/luarocks -la
 # luarocks install kong "$KONG_VERSION"-0; # 1. this rock does not copy bin/kong. 2. causes assertion failed!
+echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START luarocks: luacheck'
 luarocks install luacheck 0.20.0-1 --local
-
+echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED  luarocks: luacheck'
 cd $CACHE_DIR
 ls -la
 git clone https://github.com/Kong/kong
 cd kong/
 git checkout v1.4
 # install the Lua sources
+echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START luarocks: make kong'
 luarocks make
+echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED luarocks: make kong'
 
 # nginx -V
 # resty -V
