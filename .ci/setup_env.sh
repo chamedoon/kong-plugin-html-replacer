@@ -37,9 +37,7 @@ echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START luarocks: make 
 sudo make install
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED luarocks: make kong'
 popd
-ls -la /usr/local
-echo '/usr/local/bin'
-ls -la /usr/local/bin
+find /usr/local -name kong
 echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
 # nginx -V
 # resty -V
