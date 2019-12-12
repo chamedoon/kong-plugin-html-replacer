@@ -27,15 +27,15 @@ popd
 
 luarocks install luacheck 0.20.0-1 --local
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED  luarocks: luacheck'
-cd $CACHE_DIR
 ls -la
 git clone https://github.com/Kong/kong
-cd kong/
+pushd kong
 git checkout v1.4
 # install the Lua sources
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START luarocks: make kong'
 luarocks make
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED luarocks: make kong'
+popd
 
 # nginx -V
 # resty -V
