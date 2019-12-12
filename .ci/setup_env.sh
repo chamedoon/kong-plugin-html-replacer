@@ -10,6 +10,7 @@ export OPENSSL_INSTALL=$CACHE_DIR/setup-openssl
 export OPENSSL_DESTDIR=openssl
 
 mkdir -p $CACHE_DIR
+rm -f $CACHE_DIR/*
 
 cd $CACHE_DIR
 printenv
