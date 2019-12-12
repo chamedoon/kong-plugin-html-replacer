@@ -20,6 +20,8 @@ addons:
      - build-essential
      - libreadline-dev
      - lua5.1
+     - liblua5.1-0
+     - liblua5.1-0-dev
      - apt-transport-https
      - curl
      - lsb-core
