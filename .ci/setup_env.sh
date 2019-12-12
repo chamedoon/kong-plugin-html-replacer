@@ -38,8 +38,8 @@ sudo make install
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FINISHED luarocks: make kong'
 popd
 find /usr/local -name kong
-echo 'ls /usr/local/lib/luarocks/rocks-5.1/kong'
-ls /usr/local/lib/luarocks/rocks-5.1/kong -la
+echo 'ls /usr/local/lib/luarocks/rocks-5.1/kong/1.4.2-0'
+ls /usr/local/lib/luarocks/rocks-5.1/kong/1.4.2-0 -la
 echo 'ls /usr/local/share/lua/5.1/kong'
 ls /usr/local/share/lua/5.1/kong -la
 echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
