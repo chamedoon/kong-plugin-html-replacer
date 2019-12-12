@@ -32,9 +32,8 @@ ls -la
 git clone https://github.com/Kong/kong
 pushd kong
 git checkout 1.4.2
-ls -la
-echo '<====>'
-ls -la bin
+ln -s $PWD/bin/kong /usr/local/bin/kong
+ln -s $PWD/bin/busted /usr/local/bin/busted
 # install the Lua sources
 echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> START luarocks: make kong'
 sudo make install
