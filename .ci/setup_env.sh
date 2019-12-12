@@ -19,7 +19,7 @@ pushd $LUAROCKS_INSTALL
 curl -R -O http://www.lua.org/ftp/lua-3.2.1.tar.gz
 tar -zxf lua-3.2.1.tar.gz
 ls -la
-pushd lua-3.2.1
+pushd lua
 make linux test
 sudo make install
 popd
