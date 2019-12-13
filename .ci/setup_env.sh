@@ -14,7 +14,7 @@ sudo add-apt-repository -y "deb http://openresty.org/package/ubuntu $(lsb_releas
 
 # to update the APT index:
 sudo apt-get update
-sudo apt install -y openresty
+sudo apt install -y openresty=1.15.8.2
 
 echo '<<<<<<<<<<<<<<<<<<<<<<<<<<'
 which resty
