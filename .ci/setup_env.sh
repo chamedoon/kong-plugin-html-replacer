@@ -16,6 +16,9 @@ sudo add-apt-repository -y "deb http://openresty.org/package/ubuntu $(lsb_releas
 sudo apt-get update
 sudo apt install -y openresty
 
+openresty -v
+echo '<<<<<<<<<<<<<<<<<<<<<<<<<<'
+
 export LUAROCKS_INSTALL=$CACHE_DIR/setup-luarocks
 export LUAROCKS_DESTDIR=luarocks
 
