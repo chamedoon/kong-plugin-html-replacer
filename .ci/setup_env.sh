@@ -16,6 +16,7 @@ sudo add-apt-repository -y "deb http://openresty.org/package/ubuntu $(lsb_releas
 sudo apt-get update
 sudo apt install -y openresty
 
+echo '<<<<<<<<<<<<<<<<<<<<<<<<<<
 which resty
 resty -v
 echo '<<<<<<<<<<<<<<<<<<<<<<<<<<'
