@@ -1,5 +1,8 @@
 set -e
 
+sudo systemctl disable nginx
+sudo systemctl stop nginx
+
 sudo apt-get -y install --no-install-recommends wget gnupg ca-certificates
 
 # import our GPG key:
