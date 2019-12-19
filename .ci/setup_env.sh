@@ -1,5 +1,4 @@
 set -e
-
 echo 'starting env...'
 
 sudo apt-get -y install --no-install-recommends wget gnupg ca-certificates
