@@ -1,6 +1,6 @@
 set -e
 
-sudo systemctl disable nginx
+echo 'starting env...'
 sudo systemctl stop nginx
 
 sudo apt-get -y install --no-install-recommends wget gnupg ca-certificates
