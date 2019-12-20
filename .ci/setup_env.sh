@@ -13,7 +13,7 @@ sudo apt-get -y install --no-install-recommends software-properties-common
 # add the our official APT repository:
 sudo add-apt-repository -y "deb http://openresty.org/package/ubuntu $(lsb_release -sc) main"
 
-# to update the APT index:
+# to update the APT index:p
 sudo apt-get update
 sudo apt list -a openresty
 echo '<<<<<<<<<<<<<<<<<<<<<<<<<<'
@@ -36,7 +36,7 @@ export OPENSSL_DESTDIR=openssl
 mkdir -p $CACHE_DIR
 rm -rf $CACHE_DIR/*
 
-cd $CACHE_DIR
+pushd $CACHE_DIR
 printenv
 
 mkdir -p $LUAROCKS_INSTALL
@@ -86,3 +86,4 @@ sudo service postgresql start
 while ! cqlsh -u cassandra -p cassandra -e 'describe cluster' ; do sleep 1; done
 echo "lua version:"
 lua -v
+popd
