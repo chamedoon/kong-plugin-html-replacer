@@ -74,11 +74,6 @@ echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
 luarocks --version
 luacheck -v
 kong version
-echo "^^^ kong version ^^^"
-which kong
-kong check
-kong roar
-kong health
 echo "................................................................................"
 
 # serf version
