@@ -47,7 +47,7 @@ before_install:
   - source .ci/setup_env.sh
 
 install:
-  - make install
+  - sudo make install
 
 script:
   - source .ci/run_tests.sh
