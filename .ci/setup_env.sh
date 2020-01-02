@@ -23,6 +23,9 @@ mkdir -p $CACHE_DIR
 export PATH="$BUILD_ROOT/luarocks/bin:$BUILD_ROOT/openssl/bin:$BUILD_ROOT/openresty/bin:$PATH"
 export OPENSSL_DIR="$BUILD_ROOT/openssl"
 
+printenv
+echo '======== DEV DEPS DONE ==========='
+
 eval `luarocks path`
 
 # luarocks install kong "$KONG_VERSION"-0; # 1. this rock does not copy bin/kong. 2. causes assertion failed!
