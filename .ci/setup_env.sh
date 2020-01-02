@@ -8,7 +8,7 @@ export KONG_BASE="kong-${KONG_VERSION}"
 
 mkdir -p $CACHE_DIR
 
-if [ ! "$(ls -A $CACHE_DIR)" ]; then
+#if [ ! "$(ls -A $CACHE_DIR)" ]; then
   # Not in cache
 
 
@@ -17,7 +17,7 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
   pushd openresty-build-tools
   ./kong-ngx-build -p buildroot --openresty $OPENRESTY --openssl $OPENSSL --luarocks $LUAROCKS --pcre $PCRE
   popd
-fi
+# fi
 
 # export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin
 export PATH="$BUILD_ROOT/luarocks/bin:$BUILD_ROOT/openssl/bin:$BUILD_ROOT/openresty/bin:$PATH"
