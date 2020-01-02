@@ -15,24 +15,29 @@ addons:
    packages:
      - postgresql-9.6
      - postgresql-client-9.6
-     - net-tools
-     - libpcre3-dev
      - build-essential
-     - libreadline-dev
-     - lua5.1
-     - liblua5.1-0
-     - liblua5.1-0-dev
-     - apt-transport-https
+     - net-tools
+     - git
      - curl
-     - lsb-core
+     - valgrind
+     - zlib1g-dev
+     - python-pip
+#     - libpcre3-dev
+#     - libreadline-dev
+#     - lua5.1
+#     - liblua5.1-0
+#     - liblua5.1-0-dev
+#     - apt-transport-https
+#     - lsb-core
 
 env:
   global:
     # - SERF=0.7.0
     - LUAROCKS=3.2.1
-    - KONG_VERSION=1.4.0
+    - KONG_VERSION=1.4.2
     - OPENSSL=1.1.1d
     - CASSANDRA=2.2.7
+    - PCRE=8.43
     - OPENRESTY=1.15.8.2
     - CACHE_DIR=$HOME/cache
     - CQLSH_NO_BUNDLED=TRUE
