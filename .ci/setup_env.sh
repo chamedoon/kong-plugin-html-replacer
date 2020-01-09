@@ -17,6 +17,7 @@ mkdir -p $CACHE_DIR
   git clone https://github.com/Kong/openresty-build-tools.git
   pushd openresty-build-tools
   ./kong-ngx-build -p buildroot --openresty $OPENRESTY --openssl $OPENSSL --luarocks $LUAROCKS --pcre $PCRE
+  echo "PWD:: $PWD"
   popd
 # fi
 
@@ -27,7 +28,7 @@ export OPENSSL_DIR="$BUILD_ROOT/openssl"
 printenv
 echo '======== DEV DEPS DONE ==========='
 
-eval `luarocks path`
+eval `/home/travis/cache/openresty-build-tools/buildroot/luarocks/bin/luarocks path`
 
 # luarocks install kong "$KONG_VERSION"-0; # 1. this rock does not copy bin/kong. 2. causes assertion failed!
 luarocks install luacheck 0.20.0-1
