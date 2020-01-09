@@ -34,7 +34,7 @@ luarocks install luacheck 0.20.0-1
 
 echo '========= KONG START ==========='
 mkdir -p $KONG_INSTALL
-if [ ! "$(ls -A $KONG_INSTALL)" ]; then
+# if [ ! "$(ls -A $KONG_INSTALL)" ]; then
   # ----------------
   # Install Kong
   # ----------------
@@ -52,7 +52,7 @@ if [ ! "$(ls -A $KONG_INSTALL)" ]; then
   echo "PWD:: $PWD"
   popd
   popd
-fi
+# fi
 export PATH=$PATH:$KONG_INSTALL/$KONG_BASE/bin
 export KONG_PATH=$KONG_INSTALL/$KONG_BASE/bin/kong
 printenv
