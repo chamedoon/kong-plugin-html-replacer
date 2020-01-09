@@ -17,7 +17,6 @@ mkdir -p $CACHE_DIR
   git clone https://github.com/Kong/openresty-build-tools.git
   pushd openresty-build-tools
   ./kong-ngx-build -p buildroot --openresty $OPENRESTY --openssl $OPENSSL --luarocks $LUAROCKS --pcre $PCRE
-  echo "PWD:: $PWD"
   popd
 # fi
 
@@ -50,6 +49,7 @@ if [ ! "$(ls -A $KONG_INSTALL)" ]; then
   luarocks make
   make install
   make dev
+  echo "PWD:: $PWD"
   popd
   popd
 fi
