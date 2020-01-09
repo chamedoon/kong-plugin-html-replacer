@@ -8,7 +8,7 @@ export KONG_BASE="kong-${KONG_VERSION}"
 
 mkdir -p $CACHE_DIR
 # mkdir $HOME/cache
-if [ ! "$(ls -A $CACHE_DIR)" ]; then
+# if [ ! "$(ls -A $CACHE_DIR)" ]; then
   # Not in cache
   pushd $CACHE_DIR
 
@@ -21,7 +21,7 @@ if [ ! "$(ls -A $CACHE_DIR)" ]; then
   
   # return from cache directory
   popd 
-fi
+# fi
 
 # export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin
 export PATH="$BUILD_ROOT/luarocks/bin:$BUILD_ROOT/openssl/bin:$BUILD_ROOT/openresty/bin:$PATH"
@@ -36,7 +36,7 @@ luarocks install luacheck 0.20.0-1
 
 echo '========= KONG START ==========='
 mkdir -p $KONG_INSTALL
-if [ ! "$(ls -A $KONG_INSTALL)" ]; then
+# if [ ! "$(ls -A $KONG_INSTALL)" ]; then
   # ----------------
   # Install Kong
   # ----------------
@@ -54,7 +54,7 @@ if [ ! "$(ls -A $KONG_INSTALL)" ]; then
   echo "PWD:: $PWD"
   popd
   popd
-fi
+# fi
 export PATH=$PATH:$KONG_INSTALL/$KONG_BASE/bin
 export KONG_PATH=$KONG_INSTALL/$KONG_BASE/bin/kong
 printenv
