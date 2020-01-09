@@ -8,9 +8,9 @@ export KONG_BASE="kong-${KONG_VERSION}"
 
 mkdir -p $CACHE_DIR
 # mkdir $HOME/cache
-
 #if [ ! "$(ls -A $CACHE_DIR)" ]; then
   # Not in cache
+  pushd $CACHE_DIR
 
 
   # -----------------
@@ -28,7 +28,7 @@ export OPENSSL_DIR="$BUILD_ROOT/openssl"
 printenv
 echo '======== DEV DEPS DONE ==========='
 
-eval `/home/travis/cache/openresty-build-tools/buildroot/luarocks/bin/luarocks path`
+eval `luarocks path`
 
 # luarocks install kong "$KONG_VERSION"-0; # 1. this rock does not copy bin/kong. 2. causes assertion failed!
 luarocks install luacheck 0.20.0-1
