@@ -13,7 +13,7 @@ DEV_PACKAGE_PATH := $(current_dir)lua_modules/share/lua/5.1/?
 define set_env
 	@eval $$(luarocks path); \
 	LUA_PATH="$(DEV_PACKAGE_PATH).lua;$$LUA_PATH" LUA_CPATH="$(DEV_PACKAGE_PATH).so;$$LUA_CPATH"; \
-	cd $(KONG_PATH);
+#	cd $(KONG_PATH);
 endef
 
 lint:
