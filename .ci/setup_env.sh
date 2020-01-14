@@ -24,8 +24,11 @@ mkdir -p $CACHE_DIR
 # fi
 
 # export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin
-export PATH="$BUILD_ROOT/luarocks/bin:$BUILD_ROOT/openssl/bin:$BUILD_ROOT/openresty/bin:$PATH"
+export PATH="$BUILD_ROOT/luarocks/bin:$BUILD_ROOT/openssl/bin:$BUILD_ROOT/openresty/bin:$OPENRESTY_INSTALL/nginx/sbin:$PATH"
 export OPENSSL_DIR="$BUILD_ROOT/openssl"
+
+#mkdir -p /opt/openresty/nginx/sbin
+#ln -s  /opt/openresty/nginx/sbin
 
 echo '======== DEV DEPS DONE ==========='
 
