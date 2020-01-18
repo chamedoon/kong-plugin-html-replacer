@@ -28,6 +28,7 @@ export PATH="$BUILD_ROOT/luarocks/bin:$BUILD_ROOT/openssl/bin:$BUILD_ROOT/openre
 export OPENSSL_DIR="$BUILD_ROOT/openssl"
 
 mkdir -p /opt/openresty/nginx/sbin
+ls -la $OPENRESTY_INSTALL/nginx/sbin
 for i in $OPENRESTY_INSTALL/nginx/sbin
 do
 ln -s $i /opt/openresty/nginx/sbin/$i
