@@ -28,14 +28,11 @@ export OPENRESTY_INSTALL="$BUILD_ROOT/openresty"
 ls -la $OPENRESTY_INSTALL/nginx/sbin
 export PATH="$BUILD_ROOT/luarocks/bin:$BUILD_ROOT/openssl/bin:$BUILD_ROOT/openresty/bin:$OPENRESTY_INSTALL/nginx/sbin:$PATH"
 export OPENSSL_DIR="$BUILD_ROOT/openssl"
-echo "-------------------------"
 mkdir -p /opt/openresty/nginx/sbin
-ls -la $OPENRESTY_INSTALL/nginx/sbin
-for i in $OPENRESTY_INSTALL/nginx/sbin
-do
-ln -s $i /opt/openresty/nginx/sbin/$i
-done
-ls -la /opt/openresty/nginx/sbin
+
+ln -s $OPENRESTY_INSTALL/nginx/sbin/nginx /opt/openresty/nginx/sbin/nginx
+
+# ls -la /opt/openresty/nginx/sbin
 
 # $OPENRESTY_INSTALL/nginx/sbin
 
