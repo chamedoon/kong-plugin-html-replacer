@@ -25,11 +25,10 @@ mkdir -p $CACHE_DIR
 
 # export PATH=$PATH:$OPENRESTY_INSTALL/nginx/sbin:$OPENRESTY_INSTALL/bin:$LUAROCKS_INSTALL/bin
 export OPENRESTY_INSTALL="$BUILD_ROOT/openresty"
-ls -la $OPENRESTY_INSTALL
-export PATH="$BUILD_ROOT/luarocks/bin:$BUILD_ROOT/openssl/bin:$BUILD_ROOT/openresty/bin:$BUILD_ROOT/openresty/nginx/sbin:PATH"
-# export PATH="$BUILD_ROOT/luarocks/bin:$BUILD_ROOT/openssl/bin:$BUILD_ROOT/openresty/bin:$OPENRESTY_INSTALL/nginx/sbin:$PATH"
+ls -la $OPENRESTY_INSTALL/nginx/sbin
+export PATH="$BUILD_ROOT/luarocks/bin:$BUILD_ROOT/openssl/bin:$BUILD_ROOT/openresty/bin:$OPENRESTY_INSTALL/nginx/sbin:$PATH"
 export OPENSSL_DIR="$BUILD_ROOT/openssl"
-
+echo "-------------------------"
 mkdir -p /opt/openresty/nginx/sbin
 ls -la $OPENRESTY_INSTALL/nginx/sbin
 for i in $OPENRESTY_INSTALL/nginx/sbin
