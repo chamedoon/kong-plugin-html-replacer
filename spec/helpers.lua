@@ -5,7 +5,7 @@
 -- @license [Apache 2.0](https://opensource.org/licenses/Apache-2.0)
 -- @module spec.helpers
 
-local BIN_PATH = os.getenv("KONG_PATH")
+local BIN_PATH = "/home/travis/cache/kong/kong-1.4.2/bin/kong"
 local TEST_CONF_PATH = "spec/kong_tests.conf"
 local CUSTOM_PLUGIN_PATH = "./spec/fixtures/custom_plugins/?.lua"
 local MOCK_UPSTREAM_PROTOCOL = "http"
