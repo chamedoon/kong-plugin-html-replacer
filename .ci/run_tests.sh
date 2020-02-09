@@ -2,6 +2,7 @@ set -e
 
 export BUSTED_ARGS="-o gtest -v --exclude-tags=ci"
 export TEST_CMD="KONG_SERF_PATH=$SERF_INSTALL/serf bin/busted $BUSTED_ARGS"
+export KONG_PATH=$(which kong)
 
 if [ "$TEST_SUITE" == "lint" ]; then
   make lint
